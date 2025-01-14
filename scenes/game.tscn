@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddoypqbk0pm5f"]
+
+[ext_resource type="PackedScene" uid="uid://dt6jdklad4t4x" path="res://scenes/campo.tscn" id="1_pax3r"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_qs42v"]
+[ext_resource type="PackedScene" uid="uid://bi2xik35nhg6s" path="res://scenes/bolinha.tscn" id="2_lxoy4"]
+[ext_resource type="PackedScene" uid="uid://del5c1ymguhek" path="res://scenes/death.tscn" id="3_t1jom"]
+[ext_resource type="PackedScene" uid="uid://dif3wyhd21p3x" path="res://scenes/enemy.tscn" id="4_4d7xa"]
+[ext_resource type="PackedScene" uid="uid://cdmhlfjkf1fad" path="res://scenes/barra.tscn" id="5_6tih2"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qs42v")
+
+[node name="campo" parent="." instance=ExtResource("1_pax3r")]
+
+[node name="bolinha" parent="." instance=ExtResource("2_lxoy4")]
+position = Vector2(608, 352)
+
+[node name="death" parent="." instance=ExtResource("3_t1jom")]
+position = Vector2(-69, 336)
+rotation = 1.5708
+
+[node name="death2" parent="." instance=ExtResource("3_t1jom")]
+position = Vector2(1274, 348)
+rotation = -1.5708
+
+[node name="enemy" parent="." instance=ExtResource("4_4d7xa")]
+position = Vector2(1199, 352)
+slide_on_ceiling = false
+
+[node name="barra" parent="." instance=ExtResource("5_6tih2")]
+position = Vector2(17, 352)
+floor_stop_on_slope = false
+floor_block_on_wall = false
+
+[node name="Container" type="BoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 293.0
+offset_top = 183.0
+offset_right = 934.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="voltarJogo" type="Button" parent="Container"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "VOLTAR AO JOGO"
+
+[node name="voltarMenu" type="Button" parent="Container"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "VOLTAR AO MENU"
+
+[node name="sair" type="Button" parent="Container"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "SAIR"
+
+[connection signal="pressed" from="Container/voltarJogo" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Container/voltarMenu" to="." method="_on_voltar_menu_pressed"]
+[connection signal="pressed" from="Container/sair" to="." method="_on_sair_pressed"]

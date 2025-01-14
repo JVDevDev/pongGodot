@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dif3wyhd21p3x"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_2t125"]
+[ext_resource type="Texture2D" uid="uid://5vo7wjtgl20x" path="res://src/barra.png" id="2_300vd"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f8t0d"]
+a = Vector2(-17.9998, -80)
+b = Vector2(-18.0002, 80)
+
+[node name="enemy" type="CharacterBody2D"]
+rotation = 3.14159
+script = ExtResource("1_2t125")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_300vd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_f8t0d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-0.000202815, 80, -16.0002, 80, -15.9998, -80, 0.000202815, -80, 16.0001, -33, 15.9999, 33)

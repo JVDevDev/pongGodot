@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmhlfjkf1fad"]
+
+[ext_resource type="Script" path="res://scripts/barra.gd" id="1_12i6y"]
+[ext_resource type="Texture2D" uid="uid://5vo7wjtgl20x" path="res://src/barra.png" id="1_40r7o"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_su6po"]
+a = Vector2(-18, -80)
+b = Vector2(-18, 80)
+
+[node name="barra" type="CharacterBody2D"]
+script = ExtResource("1_12i6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_40r7o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, -80, -16, -80, -16, 80, 0, 80, 16, 33, 16, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_su6po")
