@@ -6,4 +6,7 @@ Godot 4 é uma engine sensacional
 para utilizar o projeto é necessário ter baixado o programa godot:
 https://godotengine.org/
 
-selecione a pasta baixada e então clique em rodar, fique a vontade para estudar a vontade o projeto :DDD
+1. Uma vez baixado o godot e este projeto git, clique no arquivo .godot que há neste projeto
+2. Aperte F5 e então poderá jogar normalmente
+
+Fique a vontade para estudar a vontade o projeto :D!
